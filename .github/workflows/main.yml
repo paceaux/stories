@@ -1,0 +1,30 @@
+name: Deploy Production 
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  dev-deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    environment: production
+    
+    steps:
+    - name: Get Latest code
+      uses: actions/checkout@v2
+    
+    - name: Upload the files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ${{secrets.SITE_SERVER}}
+        username: ${{secrets.SITE_USERNAME}}
+        password: ${{secrets.SITE_PASS}}
+        local-dir: ./
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/*.md
