@@ -1,0 +1,80 @@
+
+html {
+    font-size: clamp(1.4rem, calc(1vw + 1rem), 39px); /* the font-size can scale up as the browser window gets larger, but doesn't get hard to read when the browser window shrinks*/
+}
+
+blockquote,
+q {
+    quotes: var(--baseTextQuotes);
+}
+
+blockquote::before,
+q::before {
+    content: open-quote;
+}
+
+blockquote {
+    background: rgba(var(--baseQuoteBackgroundColor) 0.15);
+    border-left: var(--baseQuoteBorder);
+    margin: var(--bigSpacingVertical) var(--baseSpacingHorizontal);
+    padding: var(--baseSpacingVertical) var(--baseSpacingHorizontal);
+}
+
+blockquote::before,
+blockquote::after {
+    color: var(--colorNeutralLight);
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.5em;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 2rem;
+    grid-template-areas: "header" "main" "footer";
+}
+.g-header {
+    grid-area: header;
+    border-bottom: 4px solid var(--colorNeutralDark);
+}
+
+.g-header__title {
+    margin-bottom: 0;
+}
+
+.g-main {
+    grid-area: main;
+}
+
+.g-footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.story {
+    margin: 0 1.618rem;
+}
+
+@media screen and (min-width: 768px) {
+    .story {
+        margin: 0 15vw;
+    }
+}
+.story__part {
+    padding: var(--baseSpacingVertical) 0;
+}
+
+
+.story__part p::first-child {
+    margin-bottom: 3em;
+}
+
+.story__part p:first-child:first-letter {
+  float: left;
+  font-size: 4em;
+  line-height: 0.65;
+  margin: 0em 0.1ex 0.1em -0.6em;
+}

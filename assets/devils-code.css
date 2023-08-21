@@ -1,0 +1,138 @@
+:root {
+/*===== 
+    #Color #Palette #Variables
+    Variables follow convention found here: https://codepen.io/paceaux/pen/XdxQza
+    Color is a dark, dark gray rgb (55, 55, 55). All grays and base line styles are multiples of this
+    Using a "base value", all colors are a multiple of 55
+=====*/
+    --colorNeutralDarkest: rgb(23, 23, 23);
+                   /* #6ea5c1;  hsl (200,40%,59%) */
+
+/*===== 
+    #Color #Link #Border #Variables
+    Variables follow convention found here: https://gist.github.com/paceaux/8638765e747f5bd6387b721cde99e066#sassscssstylus-naming
+=====*/
+    --baseTextColor: var(--colorNeutralLighter);
+    --baseEditorialTextColor: var(--colorNeutralLighter);
+    --baseLinkColor: var(--colorCool);
+    --baseLinkColorHover: var(--colorCoolDarker);
+    --baseInlineBorderColor: var(--colorNeutralLight);
+
+
+    --baseQuoteBackgroundColor: 165, 165, 165, ;
+
+    --baseFontFamily: Georgia, 'Times New Roman', serif;
+    --titleFontFamily: Helvetica, Arial, sans-serif;
+
+
+/*===== 
+    #font #quotes #border #Variables
+    These are the default quotes for English. Change these quotes-as needed for other languages
+    "secondary" quotes are nested quotes. e.g. <blockquote><blockquote>
+    the CSS properties 'open-quote', 'close-quote' will use the primary open and primary close quotes listed here
+=====*/
+    --baseQuoteBorder: 10px solid var(--colorNeutralDarker);
+    --smallQuoteBorder: 5px solid var(--colorNeutralDark);
+
+
+}
+
+html {
+    font-size: clamp(1.2rem, calc(.666vw + 1rem), 39px); /* the font-size can scale up as the browser window gets larger, but doesn't get hard to read when the browser window shrinks*/
+}
+
+blockquote,
+q {
+    quotes: var(--baseTextQuotes);
+}
+
+blockquote::before,
+q::before {
+    content: open-quote;
+}
+
+blockquote {
+    background: rgba(var(--baseQuoteBackgroundColor) 0.15);
+    border-left: var(--baseQuoteBorder);
+    margin: var(--bigSpacingVertical) var(--baseSpacingHorizontal);
+    padding: var(--baseSpacingVertical) var(--baseSpacingHorizontal);
+}
+
+blockquote::before,
+blockquote::after {
+    color: var(--colorNeutralLight);
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.5em;
+}
+
+h1, h2, p, q {
+    transition: all .2s ease-in-out;
+}
+
+body {
+    background-color: var(--colorNeutralDarkest);
+
+}
+.g-header {
+    border-bottom: 4px solid var(--colorNeutralDark);
+}
+
+.g-header__title {
+    margin-bottom: 0;
+}
+
+.g-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.story {
+    margin: 0 1.618rem;
+}
+
+@media screen and (min-width: 768px) {
+    .story {
+        margin: 0 19.1vw;
+    }
+}
+.story__part {
+    padding: var(--bigSpacingVertical) 0;
+}
+.story__part:nth-child(n+2) {
+    border-top: 3px solid var(--colorNeutralDark);
+}
+
+.story__part p:first-child {
+    font-size: var(--largerTextSize);
+    margin-bottom: 3em;
+}
+
+
+.story__part p:first-child:first-letter {
+  font-size: 4em;
+  vertical-align: middle;
+
+}
+
+@media screen and (min-width: 768px) {
+    .story__part p:first-child:first-letter {
+    float: left;
+    line-height: 0.65;
+    margin: 0.1em 0.2ex 0.1em -1.6rem
+    }
+}
+
+.story__dialog--rob {
+    margin-right: 6rem;
+}
+
+.story__dialog--demon {
+    margin-left: var(--bigSpacingHorizontal);
+    margin-right: var(--bigSpacingHorizontal);
+}
+
+.story__dialog--demon q {
+    color: hsl(0, 66%, 66%);
+}

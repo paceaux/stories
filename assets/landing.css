@@ -1,0 +1,25 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 2rem;
+    grid-template-areas: "header" "main" "footer";
+    height: 100vh;
+}
+
+.g-header {
+    grid-area: header;
+}
+.g-footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.stories-nav {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--bigTitleSize);
+}
