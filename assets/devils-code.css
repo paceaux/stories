@@ -104,20 +104,20 @@ body {
     border-top: 3px solid var(--colorNeutralDark);
 }
 
-.story__part p:first-child {
+.story__part > p:first-child {
     font-size: var(--largerTextSize);
     margin-bottom: 3em;
 }
 
 
-.story__part p:first-child:first-letter {
+.story__part > p:first-child:first-letter {
   font-size: 4em;
   vertical-align: middle;
 
 }
 
 @media screen and (min-width: 768px) {
-    .story__part p:first-child:first-letter {
+    .story__part > p:first-child:first-letter {
     float: left;
     line-height: 0.65;
     margin: 0.1em 0.2ex 0.1em -1.6rem
@@ -135,4 +135,21 @@ body {
 
 .story__dialog--demon q {
     color: hsl(0, 66%, 66%);
+}
+
+.story__partFooter {
+    font-size: var(--smallestTextSize);
+}
+
+.story__partNote {
+    list-style-position: outside;
+    text-indent: 0;
+}
+
+.story__partNote p {
+    margin: 0;
+}
+
+.story__part :target {
+    background-color: rgba(255,255, 255, 0.15);
 }
