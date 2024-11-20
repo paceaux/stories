@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The International(ization) Incident | A short story | Frank M. Taylor</title>
+        <link rel="stylesheet" href="/assets/main.css" />
+        <link rel="stylesheet" href="/assets/the-i18-incident.css" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css" integrity="sha512-/mZ1FHPkg6EKcxo0fKXF51ak6Cr2ocgDi5ytaTBjsQZIH/RNs6GF6+oId/vPe3eJB836T36nXwVh/WBl/cWT4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Q5PYZMC2J"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-2Q5PYZMC2J');
+        </script>
+    </head>
+    <body>
+        <header class="g-header">
+            <hgroup class="g-header__group">
+                <h1 class="g-header__title">The International(ization) Incident</h1>
+                <p class="g-header__author">By Frank M. Taylor</p>
+                <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="paceaux" data-description="Support me on Buy me a coffee!" data-message="Moar dream juice plz" data-color="#e26f6f" data-position="Right" data-x_margin="12" data-y_margin="12"></script>
+
+            </hgroup>
+        </header>
+        <main class="main">
+            <section class="story">
+                <article class="story__part story__part--1">
+                    <aside class="story__notification story__character--you"><p><i>You have joined the call</i> </p></aside>
+                    <aside class="story__notification story__character--pm"><p><i>The Project Manager is already here</i> </p></aside>
+
+                    <p class="story__characterUpdate"><i>You wait for five minutes. The Project Manager says nothing.</i></p>
+                    <aside class="story__notification story__character--gb"><p><i>Ambassador to Great Britain has joined the call</i> </p></aside>
+                    <aside class="story__notification story__character--ar"><p><i>Ambassador to Argentina has joined the call</i> </p></aside>
+                    <aside class="story__notification story__character--cy"><p><i>Ambassador to Cyprus has joined the call</i> </p></aside>
+
+                    <p class="story__dialog story__character--you"><q>Uhhhhh&hellip; hi?</q></p>
+                    <aside class="story__notification"><p><i>Project Manager has muted you</i> </p></aside>
+
+                    <p class="story__dialog story__character--pm"><q>I'll go ahead and get this emergency sprint retrospective started. You worked on a localization ticket last week that you merged to production last Friday without review. I'm sharing the closed request. Walk us through the code.</q></p>
+                    <aside class="story__notification"><p><i>The Project Manager is sharing her screen</i> </p></aside>
+                    <p class="story__characterUpdate story__characterUpdate--forNext story__character--you"><i>You inhale deeply</i></p>
+                    <p class="story__dialog story__character--you"><q>Wwell, uh, we were just.. working on some translations for our shop. And uh... well... I was .. uhh... parsing some locale strings. Sssometimes we identify the language. And sometimes we identify the language and the locale&hellip;</q></p>
+                    <p class="story__dialog story__character--pm"><q>Let's just jump to line 83, shall we? Walk us through line-by-line.</q></p>
+                    <figure class="story__code">
+                        <pre class="story__preformated">
+<code class="language-javascript">
+getTranslationKey(i18nKey) {
+    
+}</code>
+                        </pre>
+                    <figcaption class="story__codeCaption">
+                        <p class="story__dialog story__character--you">
+                        <q>&hellip; this &hellip; takes a locale string as an argument and &hellip; it determines which translation to get&hellip;</q>
+                        </p>
+                    </figcaption>
+                </figure>
+
+                <p class="story__characterUpdate story__character-ar"><i>Ambassador to Argentina begins swearing</i></p>
+                <p class="story__dialog story__character--pm"><q>Go on. Line 84?</q></p>
+                    <figure class="story__code">
+                        <pre class="story__preformated">
+<code class="language-javascript">
+getTranslationKey(i18nKey) {
+  const part1, part2] = translationKey
+    .toLowerCase()
+    .split(/(-|_)/);
+}</code>
+                        </pre>
+                        <figcaption class="story__codeCaption">
+                            <p class="story__dialog story__character--you">
+                            <q>This &hellip; uhh&hellip; it converts the string to lowercase&hellip;</q>
+                            </p>
+                        </figcaption>
+                    </figure>
+                    <p class="story__characterUpdate story__character--gb"><i>Ambassador to Great Britain clears his voice</i></p>
+                    <p class="story__dialog story__character--you"><q>&hellip; and then it splits the string into an <var>array</var> on either a hyphen or an underscore.</q> </p>
+                    <p class="story__characterUpdate story__character--cy"><i>Ambassador to Cyprus makes a phone call. He is not on mute</i></p>
+                <p class="story__dialog story__character--pm"><q>Continue, please.</q></p>
+                    <figure class="story__code">
+                        <pre class="story__preformated">
+<code class="language-javascript">
+getTranslationKey(i18nKey) {
+  const part1, part2] = translationKey
+    .toLowerCase()
+    .split(/(-|_)/);
+    
+    return part1;
+}</code>
+                        </pre>
+                        <figcaption class="story__codeCaption">
+                            <p class="story__dialog story__character--you">
+                            <q>  that ... sends the first part of the array out of the function.</q>
+                            </p>
+                        </figcaption>
+                    </figure>
+                <aside class="story__notification story__character--pe"><p><i>Principal Engineer has entered the chat.</i> </p></aside>
+                <aside class="story__notification story__character--pe"><p><i>Principal Engineer has set her status to: <samp>Still on Vacation</samp></i> </p></aside>
+                <p class="story__dialog story__character--pe"><q>Do you know why locale strings have a lowercase and an uppercase part, even though they're separated by a hyphen?</q></p>
+                <p class="story__dialog story__character--you"><q>Uh&hellip;no?</q></p>
+                <p class="story__characterUpdate story__character--ar"><i>Ambassador to Argentina takes a phone call. He is not on mute. He begins shouting.</i></p>
+                <p class="story__dialog story__character--pe"><q>Because there's overlap between locale names and language names. Have you read the ISO 639-1 and 3166 lists?</q></p>
+                <p class="story__dialog story__character--you"><q>Uh... that... was that... in the <samp>README</samp>?</q></p>
+                <p class="story__characterUpdate story__characterUpdate--forNext story__character--pe"><i>Pouring a margarita</i></p>
+                <p class="story__dialog story__character--pe"><q>If you bothered to read the links in my Confluence space, you'd know that the the language code for Welsh is CY</q></p>
+                <p class="story__characterUpdate story__character--gb"><i>Ambassador to Great Britain stares into your soul</i></p>
+                <p class="story__dialog story__character--you"><q>Ok?</q></p>
+                <p class="story__characterUpdate"><i>Ambassadors begin shouting at aides and assistants</i></p>
+                <p class="story__dialog story__dialog--ambassador story__character--gb"><q>Do you think they speak just one language in a country?</q></p>
+                <p class="story__dialog story__character--you"><q>Uh&hellip;No?</p>
+                <p class="story__characterUpdate story__character--ar story__character--cy story__character--gb story__character--ambassadors"><i>Ambassadors begin shouting at aides and assistants</i></p>
+                <p class="story__dialog story__character--pm"><q>Cyprus and Argentina, I'm muting you. Use the hand-raise button.</q></p>
+                <p class="story__characterUpdate story__characterUpdate--forNext story__character--gb"><i>Calmly</i></p>
+                <p class="story__dialog story__dialog--ambassador story__character--gb"><q>Did you know the Welsh migrated to Argentina in the mid 19th century?</q></p>
+                <p class="story__dialog story__character--you"><q>No. But that's neat, I guess?</q></p>
+                <p class="story__dialog story__character--pe"><q>What's the country code for Argentina?</q></p>
+                <p class="story__dialog story__character--you"><q>Oh&hellip; that'd be <var>AR</var>, right?</q></p>
+                <p class="story__dialog story__character--pe"><q>So what would the locale string be for Welsh that's spoken in Argentina?</q></p>
+                <p class="story__dialog story__character--you"><q>Ummmm. <samp>cy-AR</samp> I guess?</q></p>
+                <p class="story__characterUpdate story__characterUpdate--forNext story__character--gb"><i>Jovially</i></p>
+                <p class="story__dialog story__dialog--ambassador story__character--gb"><q>Right-o old chap. Jolly good. Someone ask him another!</q></p>
+                
+                <aside class="story__notification story__character--cy">
+                    <p><i>Ambassador to Cyprus has raised his hand</i></p>
+                </aside>
+                <p class="story__dialog story__character--pm"><q>Go Ahead, Cyprus.</q></p>
+                <p class="story__dialog story__dialog--ambassador story__character--cy"><q>And can you think of any countries that might use <var>CY</var>?</q></p>
+                <p class="story__dialog story__character--you"><q>Oh! Cyprus!</q></p>
+                <p class="story__dialog story__dialog--ambassador story__character--cy"><q>And what languages might we speak here?</q></p>
+                <p class="story__dialog story__character--you"><q>&hellip;Welsh?</q></p>
+
+                <p class="story__dialog story__character--ar story__character--cy story__character--gb story__character--ambassadors"><q>Goddamnit</q></p>
+                <aside class="story__notification story__character--pm">
+                    <p><i>The Project Manager has Muted All Ambassadors</i></p>
+                </aside>
+                <p class="story__characterUpdate story__characterUpdate--forNext story__character--pe"><i>Sipping drink</i></p>
+                <p class="story__dialog story__character--pe"><q>It starts with an "AR" and ends in "abic"</q></p>
+                <p class="story__dialog story__character--you"><q>Oh. Arabic.</q></p>
+                <p class="story__dialog story__character--pe"><q>So what's the locale string for Cypriotic Arabic?</q></p>
+                <p class="story__characterUpdate story__characterUpdate--forNext story__character--you"><i>Mortified</i></p>
+                <p class="story__dialog story__character--you"><q>Oh. Shit. <var>ar-CY</var></q></p>
+                <p class="story__characterUpdate story__characterUpdate--forNext story__character--pm"><i>Standing, gesturing at Ambassadors</i></p>
+                <p class="story__dialog story__character--pm"><q>And <strong>that's</strong> how a bunch of pro-independence bumper stickers, flags, and truck nuts ended up in a Cyprus nursing home.</q></p>
+                <p class="story__characterUpdate"><i>Project Manager has lit a cigarrette</i></p>
+                <p class="story__dialog story__character--pe"><q>And <strong>that's why you use the whole goddamn locale string</strong> to look up a translation &mdash; instead of splitting it into a string and ignoring case.</q></p>
+
+                <aside class="story__notification story__character--pe">
+                    <p><i>The Principal Engineer has left the call</i></p>
+                </aside>
+                <aside class="story__notification story__character--pe">
+                    <p><i>The Project Manager has left the call</i></p>
+                </aside>
+                <aside class="story__characterUpdate">
+                    <p><i>Three Ambassadors try to find the <kbd>Hang Up</kbd>button</i></p>
+                </aside>
+<!-- 
+    <p class="story__dialog story__character--you"><q></q></p>
+    <p class="story__dialog story__character--pe"><q></q></p>
+    <p class="story__dialog story__character--pm"><q></q></p>
+    <p class="story__dialog story__character--pe"><q></q></p>
+    <p class="story__dialog story__character--pm"><q></q></p>
+-->
+                
+            </article>
+
+                    <footer class="story__partFooter">
+                        <ol class="story__partNotes">
+                            <li id="source-1" class="story__partNote">
+                                <p>
+                                    Marcus Tertius Cicero wrote <i lang="la">De Finibus Bonorum et Malorum</i> (On the ends of good and evil), circa 45 BCE
+                                </p>
+                            </li>
+                            <li id="source-2" class="story__partNote">
+                                <p>
+                                    <i>De Finibus Bonorum et Malorum</i> is the origin of "Lorem Ipsum" text. Which designers use as placeholder text.
+                                </p>
+                            </li>
+                            <li id="source-3" class="story__partNote">
+                                <p>
+                                    Luis von Ahn, <a href="https://www.ted.com/talks/luis_von_ahn_massive_scale_online_collaboration" rel="noopener" target="_blank">creator and CEO of Duolingo, invented the CAPTCHA as a way to teach AI how humans recognize things</a>. 
+                                </p>
+                            </li>
+                        </ol>
+                    </footer>
+                </article>
+            </section>
+        </main>
+        <footer class="g-footer">
+            <small>Copyright and all rights reserved.</small>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+    </body>
+
+</html>

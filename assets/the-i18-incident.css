@@ -1,0 +1,385 @@
+:root {
+/*===== 
+    #Color #Palette #Variables
+    Variables follow convention found here: https://codepen.io/paceaux/pen/XdxQza
+    Color is a dark, dark gray rgb (55, 55, 55). All grays and base line styles are multiples of this
+    Using a "base value", all colors are a multiple of 55
+=====*/
+    --colorNeutralDarkest: rgb(23, 23, 23);
+                   /* #6ea5c1;  hsl (200,40%,59%) */
+
+/*===== 
+    #Color #Link #Border #Variables
+    Variables follow convention found here: https://gist.github.com/paceaux/8638765e747f5bd6387b721cde99e066#sassscssstylus-naming
+=====*/
+    --baseTextColor: var(--colorNeutralLighter);
+    --baseEditorialTextColor: var(--colorNeutralLighter);
+    --baseLinkColor: var(--colorCool);
+    --baseLinkColorHover: var(--colorCoolDarker);
+    --baseInlineBorderColor: var(--colorNeutralLight);
+
+
+    --baseQuoteBackgroundColor: 165, 165, 165, ;
+
+    --baseFontFamily: Georgia, 'Times New Roman', serif;
+    --titleFontFamily: Helvetica, Arial, sans-serif;
+
+
+/*===== 
+    #font #quotes #border #Variables
+    These are the default quotes for English. Change these quotes-as needed for other languages
+    "secondary" quotes are nested quotes. e.g. <blockquote><blockquote>
+    the CSS properties 'open-quote', 'close-quote' will use the primary open and primary close quotes listed here
+=====*/
+    --baseQuoteBorder: 10px solid var(--colorNeutralDarker);
+    --smallQuoteBorder: 5px solid var(--colorNeutralDark);
+
+
+}
+
+html {
+    font-size: clamp(1.2rem, calc(.666vw + 1rem), 39px); /* the font-size can scale up as the browser window gets larger, but doesn't get hard to read when the browser window shrinks*/
+}
+
+blockquote,
+q {
+    quotes: var(--baseTextQuotes);
+}
+
+blockquote::before,
+q::before {
+    content: open-quote;
+}
+
+blockquote {
+    background: rgba(var(--baseQuoteBackgroundColor) 0.15);
+    border-left: var(--baseQuoteBorder);
+    margin: var(--bigSpacingVertical) var(--baseSpacingHorizontal);
+    padding: var(--baseSpacingVertical) var(--baseSpacingHorizontal);
+}
+
+blockquote::before,
+blockquote::after {
+    color: var(--colorNeutralLight);
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.5em;
+}
+
+h1, h2, p, q {
+    transition: all .2s ease-in-out;
+}
+
+body {
+    background-color: var(--colorNeutralDarkest);
+
+}
+
+.story p i {
+    display: inline-block;
+}
+
+.story p i::before {
+    content: "[";
+}
+
+.story p i::after {
+    content: "]";
+}
+.g-header {
+    border-bottom: 4px solid var(--colorNeutralDark);
+}
+
+.g-header__title {
+    margin-bottom: 0;
+}
+
+.g-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.story {
+}
+
+.story__part {
+    margin: 0 1.618rem;
+    display: flex;
+    flex-direction: column;;
+}
+
+@media screen and (min-width: 768px) {
+    .story {
+        margin: 0 19.1vw;
+    }
+}
+.story__part {
+    padding: var(--bigSpacingVertical) 0;
+}
+.story__part:nth-child(n+2) {
+    border-top: 3px solid var(--colorNeutralDark);
+}
+
+.story__part > p:first-child {
+    font-size: var(--largerTextSize);
+    margin-bottom: 3em;
+}
+
+
+.story__part > p:first-child:first-letter {
+  font-size: 4em;
+  vertical-align: middle;
+
+}
+
+@media screen and (min-width: 768px) {
+    .story__part > p:first-child:first-letter {
+    float: left;
+    line-height: 0.65;
+    margin: 0.1em 0.2ex 0.1em -1.6rem
+    }
+
+    .story__part {
+        --characterNameVerticalTopOffset: -2.2rem;
+        --characterNameVerticalBottomOffset: -2.2rem;
+        --characterNameHorizontalLeftOffset: -3.1rem;
+        --characterNameHorizontalRightOffset: -3.1rem;
+        --characterNameSize: 2rem;
+    }
+}
+
+.story__notification,
+.story__characterUpdate {
+    align-self: center;
+    text-align: center;
+    font-size: var(--smallerTextSize);
+    font-style: var(--alternateFontVoice);
+    padding: .5em var(--baseSpacingHorizontal);
+    margin-top: .5em;
+}
+
+.story__notification {
+    min-width: 71%;
+    background-color: var(--colorNeutralLighter);
+    color: var(--colorNeutralDarkest);
+    outline: 1.5px solid var(--colorNeutral);
+}
+
+.story__notification p {
+    min-width: 33%;
+    margin-bottom: 0
+}
+
+.story__notification + .story__notification {
+    margin-top: .4em;
+}
+
+.story__characterUpdate {
+    color: var(--colorNeutralDarkest);
+    background-color: hsl(60.91deg 17.04% 80.38%);
+    margin-bottom: var(--bigSpacingVertical);
+}
+
+.story__characterUpdate--forNext {
+    margin-bottom: -.2ex;
+}
+
+.story__characterUpdate:not(.story__characterUpdate--forNext) + .story__dialog {
+    margin-top: 1.5rem;
+}
+
+.story__characterUpdate:not(.story__characterUpdate--forNext) {
+    margin-top: var(--bigSpacingVertical);
+}
+
+.story__dialog {
+    position: relative;
+    display: inline-block;
+    padding: var(--baseSpacingVertical) var(--baseSpacingHorizontal);
+    border-radius: .618em;
+    margin-top: calc(var(--bigSpacingVertical) + calc( -1 * var(--characterNameVerticalTopOffset)));
+    margin-right: 0 ;
+    margin-bottom: var(--bigSpacingVertical);
+    margin-left: 0;
+    max-width: 61.8%;
+}
+
+.story__dialog::before,
+.story__dialog::after {
+    font-size: var(--biggerTextSize);
+    display: inline-block;
+    position: absolute;
+    padding: .5rem;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.story__codeCaption .story__dialog {
+    margin-top: 0;
+}
+
+.story__characterUpdate + .story__dialog {
+    margin-top: 0;
+}
+
+
+
+
+.story__character--you {
+
+}
+.story__character--pe {
+}
+.story__character--pm {
+
+}
+.story__character--gb {
+
+}
+
+
+.story__character--ar {
+    
+}
+.story__character--cy {
+    
+}
+
+
+.story__characterUpdate--forNext:is(.story__character--gb, .story__character--ar, .story__character--cy) {
+    color: var(--colorNeutralLightest);
+    background-color: hsla(243, 66%, 86%, .8);
+    align-self: flex-end;
+    margin-right: var(--characterNameSize);
+}
+
+.story__dialog:is(.story__character--gb, .story__character--cy, .story__character--ar) {
+    align-self: flex-end;
+    background-color: hsla(243, 66%, 86%, .8);
+    border-bottom-right-radius: 0;
+}
+
+.story__dialog:is(.story__character--gb, .story__character--cy, .story__character--ar)::after,
+.story__dialog:is(.story__character--gb, .story__character--cy, .story__character--ar)::before {
+    background-color: hsla(243, 66%, 86%, 1);
+}
+
+.story__dialog:is(.story__character--gb, .story__character--ar, .story__character--cy)::after {
+    right: var(--characterNameHorizontalRightOffset);
+    bottom: var(--characterNameVerticalBottomOffset);
+    width: var(--characterNameSize);
+    height: var(--characterNameSize);
+}
+
+.story__dialog.story__character--gb::after {
+    content: "🇬🇧";
+}
+
+.story__dialog.story__character--cy::after {
+    content: "🇨🇾";
+}
+
+.story__dialog.story__character--ar::after {
+    content: "🇦🇷";
+}
+
+.story__dialog.story__character--ambassadors {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.story__dialog.story__character--ambassadors::before {
+    content: "🇬🇧";
+    right: var(--characterNameHorizontalRightOffset);
+    top: var(--characterNameVerticalBottomOffset);
+    width: var(--characterNameSize);
+    height: var(--characterNameSize);
+}
+
+.story__dialog.story__character--ambassadors::after {
+    content: "🇨🇾 🇦🇷";
+    display: flex;
+    align-items: center;
+    width: calc(var(--characterNameSize) * 1.35);
+    height: calc(var(--characterNameSize) * 1.35);
+    right: calc(-2 * var(--characterNameSize));
+}
+.story__dialog:is(.story__character--you, .story__character--pe, .story__character--pm) {
+    align-self: flex-start;
+}
+
+.story__dialog:is(.story__character--pe, .story__character--pm) {
+    border-top-left-radius: 0;
+    margin-left:  var(--characterNameSize);
+    background-color: hsla(226, 83%, 61%, 0.8);
+}
+
+.story__dialog:is(.story__character--you, .story__character--pe, .story__character--pm)::before {
+    left: var(--characterNameHorizontalLeftOffset);
+    width: var(--characterNameSize);
+    height: var(--characterNameSize);
+}
+
+.story__dialog:is( .story__character--pe, .story__character--pm)::before {
+    top: var(--characterNameVerticalTopOffset);
+    background-color: hsla(226, 83%, 61%, 1);
+}
+
+.story__dialog:is(.story__character--you) {
+    border-bottom-left-radius: 0;
+    background-color: hsla(226, 23%, 61%, 0.8);
+}
+
+.story__dialog.story__character--you::before {
+    content: "You";
+    background-color: hsla(226, 23%, 61%, 1);
+    bottom: var(--characterNameVerticalBottomOffset);
+}
+
+.story__dialog.story__character--pe::before {
+    content: "PE";
+}
+.story__dialog.story__character--pm::before {
+    content: "PM";
+}
+
+.story__dialog i {
+    display: inline-block;
+    font-size: var(--smallerTextSize);
+    padding: 0 var(--baseSpacingHorizontal);
+}
+
+.story__code {
+    align-self: center;;
+}
+
+.story__characterUpdate:is(.story__character--you, .story__character--pe, .story__character--pm) {
+    align-self: flex-start;
+}
+
+.story__characterUpdate:is(.story__character--pe, .story__character--pm) {
+    background-color: hsla(226, 83%, 61%, 0.6);
+    margin-left: var(--characterNameSize);
+}
+
+.story__characterUpdate:is(.story__character--you) {
+    background-color: hsla(226, 23%, 61%, 0.6);
+}
+
+.story__partFooter {
+    font-size: var(--smallestTextSize);
+}
+
+.story__partNote {
+    list-style-position: outside;
+    text-indent: 0;
+}
+
+.story__partNote p {
+    margin: 0;
+}
+
+.story__part :target {
+    background-color: rgba(255,255, 255, 0.15);
+}
