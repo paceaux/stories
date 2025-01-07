@@ -291,7 +291,7 @@ body {
 }
 
 .story__dialog.story__character--ambassadors::before {
-    content: "🇬🇧";
+    content: "\01F1EC \01F1E7";
     right: var(--characterNameHorizontalRightOffset);
     top: var(--characterNameVerticalBottomOffset);
     width: var(--characterNameSize);
@@ -299,7 +299,7 @@ body {
 }
 
 .story__dialog.story__character--ambassadors::after {
-    content: "🇨🇾 🇦🇷";
+    content: "\01F1E8 \01F1FE  \01F1E6 \01F1F7";
     display: flex;
     align-items: center;
     width: calc(var(--characterNameSize) * 1.35);
