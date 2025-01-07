@@ -134,6 +134,16 @@ body {
 
 }
 
+@media screen and (max-width: 767px) {
+    .story__part {
+        --characterNameVerticalTopOffset: -2em;
+        --characterNameVerticalBottomOffset: -2em;
+        --characterNameHorizontalLeftOffset: -2rem;
+        --characterNameHorizontalRightOffset: -2rem;
+        --characterNameSize: 1.6em;
+        }
+}
+
 @media screen and (min-width: 768px) {
     .story__part > p:first-child:first-letter {
     float: left;
@@ -214,6 +224,10 @@ body {
     padding: .5rem;
     border-radius: 50%;
     text-align: center;
+
+    @media screen and (max-width: 767px) {
+        font-size: var(--smallTextSize);
+    }
 }
 
 .story__codeCaption .story__dialog {
