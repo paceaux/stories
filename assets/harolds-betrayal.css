@@ -45,3 +45,7 @@
     font-style: italic;
     color: var(--colorNeutralDark);
 }
+
+.story__emphasis {
+    font-size: var(--biggerTextSize);
+}
