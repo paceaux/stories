@@ -1,0 +1,217 @@
+:root {
+/*===== 
+    #Color #Palette #Variables
+    Variables follow convention found here: https://codepen.io/paceaux/pen/XdxQza
+    Color is a dark, dark gray rgb (55, 55, 55). All grays and base line styles are multiples of this
+    Using a "base value", all colors are a multiple of 55
+=====*/
+    --colorNeutralDarkest: rgb(23, 23, 23);
+                   /* #6ea5c1;  hsl (200,40%,59%) */
+
+/*===== 
+    #Color #Link #Border #Variables
+    Variables follow convention found here: https://gist.github.com/paceaux/8638765e747f5bd6387b721cde99e066#sassscssstylus-naming
+=====*/
+    --baseTextColor: var(--colorNeutralLighter);
+    --baseEditorialTextColor: var(--colorNeutralLighter);
+    --baseLinkColor: var(--colorCool);
+    --baseLinkColorHover: var(--colorCoolDarker);
+    --baseInlineBorderColor: var(--colorNeutralLight);
+
+
+    --baseQuoteBackgroundColor: 165, 165, 165, ;
+
+    --baseFontFamily: Georgia, 'Times New Roman', serif;
+    --titleFontFamily: Helvetica, Arial, sans-serif;
+
+
+/*===== 
+    #font #quotes #border #Variables
+    These are the default quotes for English. Change these quotes-as needed for other languages
+    "secondary" quotes are nested quotes. e.g. <blockquote><blockquote>
+    the CSS properties 'open-quote', 'close-quote' will use the primary open and primary close quotes listed here
+=====*/
+    --baseQuoteBorder: 10px solid var(--colorNeutralDarker);
+    --smallQuoteBorder: 5px solid var(--colorNeutralDark);
+
+
+}
+
+html {
+    font-size: clamp(1.2rem, calc(.666vw + 1rem), 39px); /* the font-size can scale up as the browser window gets larger, but doesn't get hard to read when the browser window shrinks*/
+}
+
+blockquote,
+q {
+    quotes: var(--baseTextQuotes);
+}
+
+blockquote::before,
+q::before {
+    content: open-quote;
+}
+
+blockquote {
+    background: rgba(var(--baseQuoteBackgroundColor) 0.15);
+    border-left: var(--baseQuoteBorder);
+    margin: var(--bigSpacingVertical) var(--baseSpacingHorizontal);
+    padding: var(--baseSpacingVertical) var(--baseSpacingHorizontal);
+}
+
+blockquote::before,
+blockquote::after {
+    color: var(--colorNeutralLight);
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.5em;
+}
+
+h1, h2, p, q {
+    transition: all .2s ease-in-out;
+}
+
+body {
+margin: 0;
+}
+
+.g-header,
+.g-footer {
+    background-color: hsla(from var(--colorNeutralDarkest) h s l / .9);
+}
+
+.g-header {
+    border-bottom: 4px solid var(--colorNeutralDark);
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.g-header__title {
+    margin-bottom: 0;
+}
+
+.g-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.story {
+    scroll-snap-type: y mandatory;
+}
+
+.story__part {
+    --madness-color: hsl(0, 95.75%, 95.75%);
+    padding: var(--bigSpacingVertical) 1.618rem;
+    scroll-snap-align: start;
+    @media screen and (min-width: 768px) {
+        padding-left: 19.1vw;
+        padding-right: 19.1vw;
+    }
+
+}
+
+.story__part q {
+    text-shadow: 1px 1px 0px var(--madness-color);
+}
+
+.story__part > p:first-child {
+    font-size: var(--largerTextSize);
+    margin-bottom: 2.8em;
+}
+
+
+.story__part > p:first-child:first-letter {
+    color: var(--madness-color);
+    font-size: 2.8em;
+    vertical-align: middle;
+
+}
+
+@media screen and (min-width: 768px) {
+    .story__part > p:first-child:first-letter {
+    float: left;
+    line-height: 0.65;
+    margin: 0.1em 0.2ex 0.1em -1.6rem
+    }
+}
+
+.story__dialog--raven {
+    margin-left: calc(var(--bigSpacingHorizontal) * 2);
+    margin-right: var(--bigSpacingHorizontal);
+    color: hsl(0, var(--madness-amount), var(--madness-amount));
+    text-shadow: -1px -1px 1px rgb(222,222, 222);
+}
+
+.story__part p:has(q) ~ p > q {
+    --madness-amount: calc(var(--madness-amount * .90));
+}
+
+.story__dialog--demon q {
+    color: hsl(0, 66%, 66%);
+}
+
+.story__partFooter {
+    font-size: var(--smallestTextSize);
+}
+
+.story__partNote {
+    list-style-position: outside;
+    text-indent: 0;
+}
+
+.story__partNote p {
+    margin: 0;
+}
+
+.story__part :target {
+    background-color: rgba(255,255, 255, 0.15);
+}
+
+.story__part--1 {
+    background: linear-gradient(180deg, hsl(from var(--colorNeutralLight) h s 36.9% ) 0%, hsl(from var(--colorNeutralDarker) h s 34.9%) 100%);
+}
+.story__part--2 {
+    --madness-amount: 91.5%;
+    --madness-color: hsl(0, var(--madness-amount), var(--madness-amount));
+    background: linear-gradient(180deg, hsl(from var(--colorNeutralDarker) h s 34.9%) 0%, hsl(from var(--colorNeutralDarker) h s 32.9%) 100%);
+}
+
+.story__part--3 {
+    --madness-amount: 87.5%;
+    --madness-color: hsl(0, var(--madness-amount), var(--madness-amount));
+    background: linear-gradient(180deg, hsl(from var(--colorNeutralDarker) h s 32.9%) 0%, hsl(from var(--colorNeutralDarker) h s 30.9%) 100%);
+}
+.story__part--4 {
+    --madness-amount: 83.45%;
+    --madness-color: hsl(0, var(--madness-amount), var(--madness-amount));
+    background: linear-gradient(180deg, hsl(from var(--colorNeutralDarker) h s 30.9%) 0%, hsl(from var(--colorNeutralDarker) h s 28.9%) 100%);
+}
+.story__part--5 {
+    --madness-amount: 79%;
+    --madness-color: hsl(0, var(--madness-amount), var(--madness-amount));
+    background: linear-gradient(180deg, hsl(from var(--colorNeutralDarker) h s 28.9%) 0%, hsl(from var(--colorNeutralDarker) h s 26.9%) 100%);
+}
+.story__part--6 {
+    --madness-amount: 74.75%;
+    --madness-color: hsl(0, var(--madness-amount), var(--madness-amount));
+    background: linear-gradient(180deg, hsl(from var(--colorNeutralDarker) h s 26.9%) 0%, hsl(from var(--colorNeutralDarker) h s 24.9%) 100%);
+}
+.story__part--7 {
+    --madness-amount: 70.5%;
+    --madness-color: hsl(0, var(--madness-amount), var(--madness-amount));
+    background: linear-gradient(180deg, hsl(from var(--colorNeutralDarker) h s 24.9%) 0%, hsl(from var(--colorNeutralDarker) h s 22.9%) 100%);
+
+    q {
+            text-shadow: 1px 1px 0px var(--madness-color), -1px 1px 0px var(--madness-color);
+    }
+}
+.story__part--8 {
+    --madness-amount: 66%;
+    --madness-color: hsl(0, var(--madness-amount), var(--madness-amount));
+    background: linear-gradient(180deg, hsl(from var(--colorNeutralDarker) h s 22.9%) 0%, hsl(from var(--colorNeutralDarker) h s 20.9%) 100%);
+
+q {
+        text-shadow: 2px 1px 0px var(--madness-color), -2px 1px 0px var(--madness-color), -2px -1px 0px var(--madness-color);
+    }
+}
