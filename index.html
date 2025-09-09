@@ -1,49 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Short Stories</title>
-        <link rel="stylesheet" href="assets/main.css" />
-        <link rel="stylesheet" href="assets/landing.css" />
 
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Q5PYZMC2J"></script>
-        <script>
+<head>
+    <title>Short Stories</title>
+    <link rel="stylesheet" href="assets/main.css" />
+    <link rel="stylesheet" href="assets/landing.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Q5PYZMC2J"></script>
+    <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-2Q5PYZMC2J');
-        </script>
+    </script>
 
-    </head>
-    <body>
-        
-        <header class="g-header">
-            <h1 class="g-header__title">Short Stories by Frank M. Taylor</h1>
-            <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="paceaux" data-description="Support me on Buy me a coffee!" data-message="Fuel my creativity" data-color="#5F7FFF" data-position="Right" data-x_margin="18" data-y_margin="50"></script>
-        </header>
-        
-        <nav class="stories-nav">
-            <ul>
-                <li>
+</head>
+
+<body>
+    <header class="g-header">
+        <hgroup class="g-header__hgroup">
+            <h1 class="g-header__title"><a class="g-header__titleLink" href="/">Frank M. Taylor</a></h1>
+            <p class="g-header__subtitles">
+                Short Stories
+            </p>
+        </hgroup>
+    <aside class="links g-header__links">
+        <ul class="links__list">
+            <li class="links__listItem">
+                <a href="https://anelfdiary.com/" class="links__listItemLink">An Elf Diary</a>
+            </li>
+            <li class="links__listItem">
+                <a href="https://blog.frankmtaylor.com" class="links__listItemLink">Blog</a>
+            </li>
+            <li class="links__listItem">
+                <a href="https://paceaux.com" class="links__listItemLink">Social Media</a>
+            </li>
+        </ul>
+    </aside>
+    </header>
+    <main class="g-main">
+        <section class="storiesCollection">
+            <ul class="story__list">
+                <li class="story__item">
                     <a href="/IT-follows">IT Follows</a>
                 </li>
-                <li>
+                <li class="story__item">
                     <a href="/the-internationalization-incident">The International(ization) Incident</a>
                 </li>
-                <li>
+                <li class="story__item">
                     <a href="/the-devils-code">The Devil's Code</a>
                 </li>
-                <li>
+                <li class="story__item">
                     <a href="/the-tragic-demise-of-jerry-robinson">The Tragic Demise of Jerry Robinson</a>
                 </li>
-                <li>
+                <li class="story__item">
                     <a href="/harolds-betrayal">Harold's Betrayal</a>
                 </li>
             </ul>
-        </nav>
-        <footer class="g-footer">
-            <small class="g-footer__legalese">Copyright and all rights reserved.</small>
-        </footer>
-    </body>
+        </section>
+    </main>
+
+    <footer class="g-footer" role="contentinfo">
+        <p class="g-footer__legal"> <small>Copyright © <time class="js-copyright-time" datetime="2025">2025</time>. All
+                Rights Reserved</small>
+        </p>
+        <p class="g-footer__links"><a class="g-footer__link" href="/colophon.html">Colophon</a> </p>
+    </footer>
+</body>
+
 </html>
