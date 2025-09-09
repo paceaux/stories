@@ -156,6 +156,47 @@
         <footer class="g-footer">
             <small>Copyright and all rights reserved.</small>
         </footer>
+
+        <script>
+        function getAudioElement() {
+            const element = new Audio('/assets/slack.mp3');
+            return element;
+        }
+            
+        const audio = getAudioElement();
+        const context = new AudioContext();
+
+        function getObserver(callback) {
+            const options = {
+                root: document.querySelector('story'),
+                rootMargin: '0px',
+                scrollMargin: '0px',
+                threshold: 1.0,
+                delay: 300
+            };
+            return new IntersectionObserver(callback, options)
+        }
+    
+        const intersectionCb = (entries) => {
+            entries.forEach(async (entry) => {
+                if (entry.isIntersecting) {
+                    let elem = entry.target;
+                    try {
+                        await audio.play()
+                    } catch (err) {
+                        console.error("couldn't play terror.")
+                    }
+                }
+            });
+        }
+
+        const ravenDialogs = document.querySelectorAll('.story__dialog--raven');
+        const observer= getObserver(intersectionCb);
+
+        ravenDialogs.forEach((dialog) => {
+            observer.observe(dialog)
+        })
+        </script>
     </body>
 
 </html>
