@@ -14,3 +14,5 @@ User-agent: PerplexityBot
 Disallow: /
 
 User-agent: *
+
+Sitemap: https://stories.frankmtaylor.com/sitemap.xml
