@@ -13,7 +13,7 @@ html, body {
 }
 
 html {
-    font-size: clamp(1.2rem, calc(.666vw + 1rem), 39px);
+    font-size: clamp(1.4rem, calc(.666vw + 1rem), 39px);
     /* the font-size can scale up as the browser window gets larger, but doesn't get hard to read when the browser window shrinks*/
 }
 
@@ -44,7 +44,15 @@ q::before {
     margin: 0 auto;
     background-color: var(--colorNeutralDarkest);
     color: var(--colorNeutralLighter);
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+
     @media (width >= 768px) {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+    
+    @media (width >= 1080px) {
         padding-left: 25vw;
         padding-right: 25vw;
     }
@@ -52,8 +60,15 @@ q::before {
 
 .story__part--tisha,
 .story__part--demon-julian {
+    padding-left: 4vw;
+    padding-right: 5vw;
 
     @media (width >= 768px) {
+        padding-left: 8vw;
+        padding-right: 8vw;
+    }
+
+    @media (width >= 1080px) {
         padding-left: 16vw;
         padding-right: 16vw;
     }
