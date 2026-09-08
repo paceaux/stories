@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Radley:ital@0;1&display=swap');
+
+
+:root {
+    --colorNeutralDarkest: rgb(23, 23, 23);
+    --colorNeutralLightest: rgb(255, 255, 255);
+    --baseFontFamily: 'Helvetica', Arial, sans-serif;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: clamp(1.2rem, calc(.666vw + 1rem), 39px);
+    /* the font-size can scale up as the browser window gets larger, but doesn't get hard to read when the browser window shrinks*/
+}
+
+body {
+}
+
+blockquote,
+q {
+    quotes: var(--baseTextQuotes);
+}
+
+blockquote::before,
+q::before {
+    content: open-quote;
+}
+
+.story {
+    margin: 0 1.618rem;
+}
+
+.story__part {
+    padding: var(--bigSpacingVertical) 0;
+    margin: 0 auto;
+}
+
+
+.story__part--qa {
+    margin: 0 auto;
+    background-color: var(--colorNeutralDarkest);
+    color: var(--colorNeutralLighter);
+    @media (width >= 768px) {
+        padding-left: 25vw;
+        padding-right: 25vw;
+    }
+}
+
+.story__part--tisha,
+.story__part--demon-julian {
+
+    @media (width >= 768px) {
+        padding-left: 16vw;
+        padding-right: 16vw;
+    }
+}
+
+.story__part--retro {
+    background-color: hsl(229, 20%, 40%);
+    color: var(--colorNeutralLightest);
+
+    @media (width >=768px) {
+        padding:var(--bigSpacingVertical) 10vw;
+    }
+}
+
+.story__part--demon-julian {
+    background-color: var(--colorNeutralDarkest);
+    color: var(--colorNeutralLighter);
+}
+
+.story__part > p:first-child {
+    font-size: var(--biggerTextSize);
+}
+
+.story__part--qa .story__entry:first-child > p:first-child {
+    font-size: var(--biggerTextSize);
+}
+
+.character {
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.protag {
+    padding-right: 38.2%;
+}
+
+.antag {
+    padding-left: 38.2%;
+    text-align: right;
+}
+
+.character--legal,
+.character--op {
+    font-family: "Cormorant", serif;
+}
+
+.character--pm,
+.character--fo,
+.character--po,
+.character--other {
+    font-family: "Radley", serif;
+}
+
+
+.character--fo q {
+    color: hsl(0, 66%, 66%);
+}
+
+.text--center {
+    text-align: center
+}
+
+.story__entry {
+    color: var(--colorNeutralDarkest);
+    padding: var(--baseSpacingVertical) var(--baseSpacingHorizontal);
+    background-color: var(--colorNeutralLightest);
+    border-radius: 6px;
+    margin-bottom: var(--baseSpacingVertical);
+}
+
+
+.story__footer {
+    font-size: var(--smallestTextSize);
+}
+
+.story__note {
+    list-style-position: outside;
+    text-indent: 0;
+}
