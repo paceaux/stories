@@ -288,13 +288,14 @@ q {
 
 .phone {
     display: flex;
-    font-size: var(--biggestTextSize);
+    font-size: var(--bigTitleSize);
     border: 1px solid var(--colorNeutralLight);
     border-radius: 4px;
     justify-content: center;
     margin: var(--baseSpacingVertical) 0;
 }
 .phone p {
+    color: #000;
     font-style: oblique;
     text-shadow: 2px 2px 4px hsla(0deg 80% 20% / .2);
     margin-bottom: 0;
@@ -381,4 +382,21 @@ q {
     color: #fff;
     text-align: center;
     vertical-align: text-top;
+}
+
+.color--red {
+    text-shadow: 0px 0px 1em hsl(5deg 40% 30%);
+}
+
+.color--blue {
+    text-shadow: 0px 0px 1em hsl(185deg 40% 30%);
+
+}
+
+.color--brown {
+    text-shadow: 0px 0px 1em hsl(10deg 49% 40%);
+}
+
+.color--ochre {
+    text-shadow: 0px 0px 1em hsl(30, 71%, 47%);
 }
