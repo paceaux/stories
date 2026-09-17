@@ -1,0 +1,419 @@
+:root {
+/*===== 
+    #Color #Palette #Variables
+    Variables follow convention found here: https://codepen.io/paceaux/pen/XdxQza
+    Color is a dark, dark gray rgb (55, 55, 55). All grays and base line styles are multiples of this
+    Using a "base value", all colors are a multiple of 55
+=====*/
+    --colorNeutralDarkest: rgb(23, 23, 23);
+                   /* #6ea5c1;  hsl (200,40%,59%) */
+    --colorNeutralLighter: hsl(0, 0%, 98%);
+    --colorNeutralLightest: hsl(0, 0%, 100%);
+    --colorCool: rgb(124, 189, 180);
+/*===== 
+    #Color #Link #Border #Variables
+    Variables follow convention found here: https://gist.github.com/paceaux/8638765e747f5bd6387b721cde99e066#sassscssstylus-naming
+=====*/
+    --baseTextColor: var(--colorNeutralDarkest);
+    --baseEditorialTextColor: var(--colorNeutralLighter);
+    --baseLinkColor: var(--colorCool);
+    --baseLinkColorHover: var(--colorCoolDarker);
+    --baseInlineBorderColor: var(--colorNeutralLight);
+
+
+    --baseQuoteBackgroundColor: 165, 165, 165, ;
+
+    --baseFontFamily: Georgia, 'Times New Roman', serif;
+    --titleFontFamily: Helvetica, Arial, sans-serif;
+
+
+/*===== 
+    #font #quotes #border #Variables
+    These are the default quotes for English. Change these quotes-as needed for other languages
+    "secondary" quotes are nested quotes. e.g. <blockquote><blockquote>
+    the CSS properties 'open-quote', 'close-quote' will use the primary open and primary close quotes listed here
+=====*/
+    --baseQuoteBorder: 10px solid var(--colorNeutralDarker);
+    --smallQuoteBorder: 5px solid var(--colorNeutralDark);
+
+
+}
+/* ===============
+    #animation
+=============== */
+
+@keyframes fadeInOut {
+  0% {
+    color: rgba(0, 0, 0, 0.01);
+  }
+
+  50% {
+    color: rgba(55, 55, 55, 1);
+  }
+
+  100% {
+    color: rgba(0, 0, 0, 0.01);
+  }
+}
+
+@keyframes bopUp {
+    from {
+        transform: none;
+    }
+
+    33% {
+        transform: translateY(-.67ex); 
+    }
+
+    67% {
+        transform: none;
+    }
+}
+
+@keyframes setSlideUp {
+
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(0em - ((var(--baseTextSize) * 1.4)  * var(--animatedSetCount))));
+  }
+}
+
+[class*="OnScroll"] {
+    transition: all 1s ease-in-out;
+}
+
+.animate--fadeOnScroll {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+
+}
+
+.animate--fadedOnScroll {
+    opacity: 1;
+    max-height: 400vh;
+}
+
+
+.animation--setSlidesUp {
+--animatedSetItemHeight: calc(var(--baseTextSize) * 1.4);
+--animatedSetCount: 5;
+--animatedSetDelay: 4s;
+
+overflow: hidden;
+height: var(--animatedSetItemHeight);
+}
+
+.animation__set {
+animation-name: setSlideUp;
+animation-duration: calc(var(--animatedSetDelay) * var(--animatedSetCount));
+animation-timing-function: steps(var(--animatedSetCount), jump-start);
+animation-delay: var(--animatedSetDelay);
+animation-iteration-count: infinite;
+animation-direction: alternate;
+animation-fill-mode: backwards;
+}
+
+.animation__item {
+height: var(--animatedSetItemHeight);
+animation-name: fadeInOut;
+animation-duration: var(--animatedSetDelay);
+animation-timing-function: ease-out;
+animation-iteration-count: var(--animatedSetCount);
+margin-bottom: 0;
+}
+
+
+.animate--bops {
+
+}
+.bopItem {
+display: inline-block;
+animation-name: bopUp;
+animation-duration: 700ms;
+animation-iteration-count: infinite;
+animation-timing-function: ease-out;
+}
+
+.bopItem:nth-child(2) {
+animation-delay: 125ms;
+}
+.bopItem:nth-child(3) {
+animation-delay: 250ms;
+}
+
+html {
+    font-size: clamp(1.2rem, calc(.666vw + 1rem), 39px); /* the font-size can scale up as the browser window gets larger, but doesn't get hard to read when the browser window shrinks*/
+}
+
+blockquote,
+q {
+    quotes: var(--baseTextQuotes);
+}
+
+blockquote::before,
+q::before {
+    content: open-quote;
+}
+
+blockquote {
+    background: rgba(var(--baseQuoteBackgroundColor) 0.15);
+    border-left: var(--baseQuoteBorder);
+    margin: var(--bigSpacingVertical) var(--baseSpacingHorizontal);
+    padding: var(--baseSpacingVertical) var(--baseSpacingHorizontal);
+}
+
+blockquote::before,
+blockquote::after {
+    color: var(--colorNeutralLight);
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.5em;
+}
+
+h1, h2, p, q {
+    transition: all .2s ease-in-out;
+}
+
+q {
+    font-style: oblique;
+}
+
+.g-header {
+    color: var(--colorCool);
+    border-bottom: 4px solid rgb(124 189 180);
+}
+
+.g-header__title {
+    margin-bottom: 0;
+}
+
+.g-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.story {
+
+    margin: 0 1.618rem;
+}
+
+@media screen and (min-width: 768px) {
+    .story {
+        margin: 0 13.1vw;
+    }
+}
+
+
+.story > p {
+    margin-left: 6vw;
+    margin-right: 6vw;
+}
+
+.story > p:first-child q {
+    font-size: var(--biggestTextSize);
+    margin-bottom: 3em;
+}
+
+
+.story > p:first-child > q:first-letter {
+  font-size: 4em;
+  vertical-align: middle;
+
+}
+
+@media screen and (min-width: 768px) {
+    .story__part > p:first-child:first-letter {
+    float: left;
+    line-height: 0.65;
+    margin: 0.1em 0.2ex 0.1em -1.6rem
+    }
+}
+
+.chat {
+    font-family:Arial, Helvetica, sans-serif;
+    padding: 1em 2vw;
+    margin: .618em 0;
+}
+
+.chat{
+    background-color: var(--colorNeutralLighter);
+}
+
+.chat__prompt {
+    padding: .618em 2vw;
+    background-color: var(--colorNeutralLightest);
+    border: 1px solid var(--colorNeutral);
+    border-radius: 1em;
+}
+
+.chat__response {
+    font-size: var(--smallTextSize);
+    line-height: 1;
+}
+
+.chat__response p:only-child {
+    text-align: center;
+}
+
+.chat__thinking {
+    text-align: center;
+}
+
+.chat__promptFooter {
+    display: grid;
+    grid-template-rows: 1.5em;
+    grid-template-columns: 1.5em auto 4em;
+    grid-template-areas: "left . right";
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
+.chat__promptFooter--ask {
+    grid-template-areas: 'left ask right';
+    background-color: var(--colorNeutralLightest);
+    border-radius: 2em;
+    border: 1px solid var(--colorNeutral);
+}
+
+.chat__promptControls--right {
+    grid-area: right;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chat__promptControls--left {
+    grid-area: left;
+}
+
+.chat__promptControls--ask {
+    grid-area: ask;
+    color: var(--colorNeutralLight);
+    font-size: var(--smallTextSize);
+}
+
+.chat__promptControls--ask p {
+    display: inline;
+    vertical-align: text-top;
+    margin: 0;
+
+}
+
+.phone {
+    display: flex;
+    font-size: var(--bigTitleSize);
+    border: 1px solid var(--colorNeutralLight);
+    border-radius: 4px;
+    justify-content: center;
+    margin: var(--baseSpacingVertical) 0;
+}
+.phone p {
+    color: #000;
+    font-style: oblique;
+    text-shadow: 2px 2px 4px hsla(0deg 80% 20% / .2);
+    margin-bottom: 0;
+}
+
+.story__partFooter {
+    font-size: var(--smallestTextSize);
+}
+
+.story__partNote {
+    list-style-position: outside;
+    text-indent: 0;
+}
+
+.story__partNote p {
+    margin: 0;
+}
+
+.story__part :target {
+    background-color: rgba(255,255, 255, 0.15);
+}
+
+.main__footer {
+    padding: .618em;
+    width: 38.2%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: hsla(0deg, 90%, 66%, .3);
+    border-radius: 25% / 25%;
+}
+
+
+.mic.icon {
+  --size: .65em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%) rotate(-45deg);
+	width: var(--size);
+	height: var(--size);
+	border: calc(var(--size) * .0444) solid #000;
+	border-top-color: transparent;
+	border-right-color: transparent;
+	border-radius: 100%;
+
+}
+.mic.icon:before {
+	content: "";
+	position: absolute;
+	top: -20%;
+	left: 40%;
+	transform: rotate(45deg);
+	width: calc(var(--size) * .55);
+	height: calc(var(--size) * 1.11);
+	background: #000;
+	border-radius: calc(var(--size) * .44);
+}
+
+.mic.icon:after {
+	content: "";
+	position: absolute;
+	top: 83%;
+	left: 2%;
+	width: calc(var(--size) * .0444);
+	height: calc(var(--size) * .33);
+	background: #000;
+	transform: rotate(45deg);
+}
+
+
+.iconWrapper:has(.arrow.icon) {
+    background-color: #000;
+    border-radius: 50%;
+    display: inline-flex;
+    font-size: .85em;
+    height: 1.25em;
+    width: 1.25em;
+    margin-top: .25em;
+    justify-content: center;
+    align-items: center;
+}
+.arrow.icon {
+    font-size: .75em;
+    color: #fff;
+    text-align: center;
+    vertical-align: text-top;
+}
+
+.color--red {
+    text-shadow: 0px 0px 1em hsl(5deg 40% 30%);
+}
+
+.color--blue {
+    text-shadow: 0px 0px 1em hsl(185deg 40% 30%);
+
+}
+
+.color--brown {
+    text-shadow: 0px 0px 1em hsl(10deg 49% 40%);
+}
+
+.color--ochre {
+    text-shadow: 0px 0px 1em hsl(30, 71%, 47%);
+}
