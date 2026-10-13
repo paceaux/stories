@@ -1,0 +1,30 @@
+.story {
+    --partTitleSize: 1.618rem;
+}
+
+.story__part:nth-child(2) {
+    --partTitleSize: calc(var(--partTitleSize) * 1.618);
+}
+
+.story__part:nth-child(3) {
+    --partTitleSize: calc((var(--partTitleSize) * 1.618) * 1.618);
+}
+
+.story__part:nth-child(4) {
+    --partTitleSize: calc(((var(--partTitleSize) * 1.618) * 1.618)) * 1.618;
+}
+
+.story__part:nth-child(5) {
+    --partTitleSize: calc(((var(--partTitleSize) * 1.618) * 1.618)) * 1.618 * 1.618;
+}
+
+.story__part:nth-child(6) {
+    --partTitleSize: calc(((var(--partTitleSize) * 1.618) * 1.618)) * 1.618 * 1.618 * 1.618;
+}
+
+.story__fin {
+    font-size: calc(var(--partTitleSize) * 1.618)
+}
+.story__partTitle {
+    font-size: var(--partTitleSize)
+}
