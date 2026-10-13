@@ -37,7 +37,7 @@
             <section class="story__part">
                 <h2 class="story__partTitle">Six</h2>
                 <p><i>Too bright!</i></p>
-                <p>Colors are everywhere: Dark browns, yellows, blues, and grays.</p>
+                <p>Colors are everywhere: <span class="cdb">Dark browns</span>, <span class="cy">yellows</span>, <span class="cb">blues</span>, and <span class="cg">grays</span>.</p>
                 <p>They flash and undulate from one to the next. They shine and dim from every possible direction. The way the colors dart from the ceiling to walls, floor, and then back to the top is dizzying. </p>
                 <p>This is a kind of dizziness that makes the ears itch.</p>
                 <p><i>Colors are scratching my ears!</i></p>
@@ -60,7 +60,7 @@
             <section class="story__part">
                 <h2 class="story__partTitle">Three</h2>
                 <p><i>Too much danger!</i></p>
-                <p>The smell of wet copper is mixing with the smells of barbecue, mold, and…. Not wet copper &mdash; wet coppers. They’re different. One was sick. One was drinking. One is…</p>
+                <p>The smell of wet copper is mixing with the smells of barbecue, mold, and…. Not wet copper &mdash; <em>wet coppers</em>. They’re different. One was sick. One was drinking. One is…</p>
                 <p><q>Sammy,</q> mutters the man. </p>
                 <p><i>Awake!</i></p>
                 <p><q>Sammy, come here.</q></p>
@@ -89,12 +89,11 @@
                 <p><i>His heart beats for me. Mine beats for him.</i></p>
                 <p><i>He whispers the phrase I love; my favorite. The last words are different.</i></p>
                 <p><q>I'll be your shield, and you'll be… the world's…</q></p>
-                <p class="story__fin"><strong>heartbeat</strong></p>
+                <p class="story__fin"><strong><span class="heart">heart</span><wbr/><span class="heart animate--delay">beat</span></strong></p>
             </section>
         </section>
         <footer class="story__footer">
-            <p>This was originally submitted to the Harvest Owl 500-word Pro short story battle on <a href="https://writingbattle.com" >writingbattle.com</a></p>
-            <p>This story was written for three prompts: <b>Doomsday Clock</b>, <b>Defender</b>, <b>shield</b>.</p>
+            <p>This was originally submitted to the Harvest Owl 500-word Pro short story battle on <a href="https://writingbattle.com" >writingbattle.com</a>. </p><p>It was written for three prompts: <b>Doomsday Clock</b>, <b>Defender</b>, <b>shield</b>.</p>
         </footer>
     </main>
     <footer class="g-footer">
@@ -118,6 +117,27 @@
         kupita patsogolo kwa anthu ndi miyezo yabwino ya moyo mu ufulu waukulu,
         Pamene Mayiko Omwe Ali Mamembala alonjeza kukwaniritsa, mogwirizana
         ndi </span>
+<script>
+const observableEls = document.querySelectorAll('.heart')
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate--heartbeat')
+        }
+
+    })
+},
+{
+    delay: 1000,
+    threshold: 1
+}
+);
+
+[...observableEls].forEach((observableEl) => {
+    observer.observe(observableEl)
+});
+</script>
 </body>
 
 </html>
