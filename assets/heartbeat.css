@@ -13,6 +13,7 @@
 
 .g-header__title {
     margin-bottom: 0;
+    string-set: doctitle content();
 }
 
 .story {
@@ -26,6 +27,14 @@
 .story__part {
     --partTitleSize: var(--baseTitleSize);
     margin-bottom: 1.618rem;
+}
+
+.story__part:nth-child(3){
+    page-break-before: always;
+}
+
+.story__part:nth-child(5) {
+    page-break-after: always;
 }
 
 .story__part p {
@@ -60,6 +69,7 @@ p.story__fin {
     font-size: clamp(11em, calc(28vw - 3rem), max(calc(var(--partTitleSize) * 1.618), 40vw));
     word-wrap: break-word;
     line-height: .7;
+    page-break-before: always
 }
 
 .story__partTitle {
@@ -146,5 +156,39 @@ p.story__fin {
 @media (prefers-reduced-motion: reduce) {
     [class*="animate"] {
         animation: none;
+    }
+}
+
+@media print {
+    #bmc-wbtn,
+    [style*="position: fixed"] {
+        display: none !important;
+    }
+
+    .story__footer {
+        margin-top: 5in;
+    }
+
+    .g-footer {
+        text-align: center;
+    }
+}
+
+@page :left {
+    margin-bottom: 1in;
+    
+    @top-left {
+        content: string(doctitle);
+    }
+    @bottom-left {
+        content: "Copyright and all Rights Reserved 2026."
+    }
+
+
+}
+
+@page {
+    @bottom-right {
+        content: counter(pageNumber);
     }
 }
