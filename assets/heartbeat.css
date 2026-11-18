@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Hina+Mincho&display=swap');
+
+
+
+:root {
+    --baseFontFamily: "Hina Mincho", var(--baseFontFamily); 
+    --smallLineHeight: .8;
+    --storyYellow: #e6cf4a;
+    --storyBrown: #6f6658;
+    --storyBlue: #2f6fce;
+    --storyGray: #c7b8a5;
+}
+
+.g-header__title {
+    margin-bottom: 0;
+    string-set: doctitle content();
+}
+
+.story {
+    --baseTitleSize: calc(var(--baseTextSize) + .5vw);
+    --beat-duration: 1.8s;
+    --scale-peak: 1.42; /* 1st (strong) beat max scale */
+    --scale-mini: 1.12; /* 2nd (smaller) beat max scale */
+    --glow: rgba(255, 0, 64, 0.5);
+}
+
+.story__part {
+    --partTitleSize: var(--baseTitleSize);
+    margin-bottom: 1.618rem;
+}
+
+.story__part:nth-child(3){
+    page-break-before: always;
+}
+
+.story__part:nth-child(5) {
+    page-break-after: always;
+}
+
+.story__part p {
+    --horizontalMargin: clamp(2em, 17.75vw, calc((100vw * .67) / 2));
+    margin-left: var(--horizontalMargin);
+    margin-right: var(--horizontalMargin);
+}
+
+.story__part:nth-child(2) {
+    --partTitleSize: calc(var(--baseTitleSize) * 1.618);
+}
+
+.story__part:nth-child(3) {
+    --partTitleSize: calc((var(--baseTitleSize) * 1.618) * 1.618);
+}
+
+.story__part:nth-child(4) {
+    --partTitleSize: calc((((var(--baseTitleSize) * 1.618) * 1.618)) * 1.618);
+}
+
+.story__part:nth-child(5) {
+    --partTitleSize: calc(((((var(--baseTitleSize) * 1.618) * 1.618)) * 1.618) * 1.618);
+}
+
+.story__part:nth-child(6) {
+    --partTitleSize: calc((((((var(--baseTitleSize) * 1.618) * 1.618)) * 1.618) * 1.618) * 1.618);
+}
+
+p.story__fin {
+    --horizontalMargin: 0;
+    text-align: center;
+    font-size: clamp(11em, calc(28vw - 3rem), max(calc(var(--partTitleSize) * 1.618), 40vw));
+    word-wrap: break-word;
+    line-height: .7;
+    page-break-before: always
+}
+
+.story__partTitle {
+    font-family: "Cal Sans", var(--titleFontFamily);
+    text-align: center;
+    font-size: var(--partTitleSize);
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: .382rem;
+}
+
+.story__footer {
+    text-align: center;
+}
+
+.color--darkBrown,
+.cdb {
+    text-shadow: 0px 0px 1em var(--storyBrown)
+}
+
+.color--yellow,
+.cy {
+    text-shadow: 0px 0px 1em var(--storyYellow)
+
+}
+
+.color--blue,
+.cb {
+    text-shadow: 0px 0px 1em var(--storyBlue)
+
+}
+
+.color--gray, 
+.cg {
+    text-shadow: 0px 0px 1em var(--storyGray)
+
+}
+
+/* Credit to Karl Horning: https://codepen.io/karlhorning/pen/NWooGeY  */
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+  12% {
+    transform: scale(var(--scale-peak));
+    animation-timing-function: cubic-bezier(0.3, 0.2, 0.1, 1);
+  }
+  22% {
+    transform: scale(1.02);
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+  32% {
+    transform: scale(var(--scale-mini));
+    animation-timing-function: cubic-bezier(0.3, 0.2, 0.1, 1);
+  }
+  45% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+[class*="animate"] {
+    will-change: transform;
+    transform-origin: center;
+    backface-visibility: hidden;
+}
+
+.heart {
+    display: inline-block;
+}
+
+.animate--heartbeat {
+  animation: heartbeat var(--beat-duration) 1;
+}
+
+.animate--delay {
+    animation-delay: 700ms
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [class*="animate"] {
+        animation: none;
+    }
+}
+
+@media print {
+    #bmc-wbtn,
+    [style*="position: fixed"] {
+        display: none !important;
+    }
+
+    .story__footer {
+        margin-top: 5in;
+    }
+
+    .g-footer {
+        text-align: center;
+    }
+}
+
+@page :left {
+    margin-bottom: 1in;
+    
+    @top-left {
+        content: string(doctitle);
+    }
+    @bottom-left {
+        content: "Copyright and all Rights Reserved 2026."
+    }
+
+
+}
+
+@page {
+    @bottom-right {
+        content: counter(pageNumber);
+    }
+}
